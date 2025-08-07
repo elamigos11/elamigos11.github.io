@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Juegos</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('https://images4.alphacoders.com/854/thumb-1920-85444.jpg'); /* Usa el nombre correcto aquí */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .search-box {
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+      text-align: center;
+    }
+
+    .search-box input {
+      width: 80%;
+      padding: 12px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+    }
+
+    .games-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 0 20px;
+    }
+
+    .game-card {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid #ffffff33;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s;
+    }
+
+    .game-card:hover {
+      transform: scale(1.05);
+    }
+
+    .game-card img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .game-card h3 {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .game-card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #ff6600;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .game-card a:hover {
+      background-color: #ff8533;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="search-box">
+      <input type="text" placeholder="Buscar juegos..." onkeyup="buscarJuegos(this)">
+    </div>
+
+    <div class="games-container" id="games">
+      <div class="game-card">
+        <img src="https://data.xxlgamer.com/products/5822/ZDvN9jEc8hkXnY-medium.jpg?text=Juego+1" alt="Juego 1">
+        <h3>Red Dead Redemption 1</h3>
+        <a href="https://optijuegos.net/gta-san-andreas" target="_blank">Jugar</a>
+      </div>
+      <div class="game-card">
+        <img src="https://media.rockstargames.com/rockstargames-newsite/uploads/167c41006f2356ed140f67748a1c190bb59dcd62.jpg?text=Juego+2" alt="Juego 2">
+        <h3>GTA 4</h3>
+        <a href="https://optijuegos.net/super-mario" target="_blank">Jugar</a>
+      </div>
+	<div class="game-card">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a5/Grand_Theft_Auto_V.png/250px-Grand_Theft_Auto_V.png?text=Juego+2" alt="Juego 2">
+        <h3>GTA 5</h3>
+        <a href="https://gofile.io/d/rPyH6O" target="_blank">Jugar</a>
+      </div>
+      <!-- ABc -->
+    </div>
+  </div>
+
+  <script>
+    function buscarJuegos(input) {
+      const filtro = input.value.toLowerCase();
+      const juegos = document.querySelectorAll('.game-card');
+
+      juegos.forEach(juego => {
+        const titulo = juego.querySelector('h3').innerText.toLowerCase();
+        juego.style.display = titulo.includes(filtro) ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
